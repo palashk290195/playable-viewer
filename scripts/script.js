@@ -11,30 +11,7 @@ class GamePreview {
         this.initEventListeners();
         this.checkMobile();
         this.initFromURL();
-        
-        // If no game is selected after URL init, use default
-        if (!this.currentGame) {
-            this.gameSelector.value = DEFAULT_CONFIG.defaultGame;
-            this.handleGameChange();
-        }
     }
-
-    initFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        const gameId = params.get('game') || DEFAULT_CONFIG.defaultGame;
-        const deviceId = params.get('device') || DEFAULT_CONFIG.defaultDevice;
-        
-        if (gameId && GAMES[gameId]) {
-            this.gameSelector.value = gameId;
-            this.handleGameChange();
-        }
-        
-        if (deviceId && DEVICES[deviceId]) {
-            this.deviceSelector.value = deviceId;
-            this.handleDeviceChange();
-        }
-    }
-
 
     initElements() {
         // Get DOM elements
@@ -130,12 +107,14 @@ class GamePreview {
         this.currentDevice = this.deviceSelector.value;
         this.updateDeviceFrame();
         this.updateShareUrl();
+        this.refreshGame(); // Added auto-refresh
     }
 
     toggleOrientation() {
         this.isPortrait = !this.isPortrait;
         this.updateDeviceFrame();
         this.orientationToggle.innerHTML = `<span class="icon">${this.isPortrait ? '📱' : '📱↔️'}</span>`;
+        this.refreshGame(); // Added auto-refresh
     }
 
     toggleSound() {
