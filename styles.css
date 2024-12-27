@@ -1,0 +1,149 @@
+/* styles.css */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Control Panel Styles */
+.control-panel {
+    background-color: #fff;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.control-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.control-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    min-width: 120px;
+}
+
+.control-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.control-button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Device Frame Styles */
+.device-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+}
+
+.device-frame {
+    background-color: #fff;
+    border-radius: 36px;
+    padding: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.device-frame iframe {
+    border-radius: 24px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Portrait and Landscape Modes */
+.device-frame.portrait {
+    padding: 40px 12px;
+}
+
+.device-frame.landscape {
+    padding: 12px 40px;
+}
+
+/* Share Section Styles */
+.share-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#qrcode {
+    width: 128px;
+    height: 128px;
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.share-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    font-size: 14px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .control-panel {
+        padding: 0.5rem;
+    }
+    
+    .share-section {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .control-group {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Loading States */
+.device-frame.loading {
+    opacity: 0.7;
+}
+
+/* Animation for orientation change */
+@keyframes rotate-frame {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(90deg); }
+}
+
+/* Utils */
+.hidden {
+    display: none !important;
+}
