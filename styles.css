@@ -1,6 +1,4 @@
 /* styles.css */
-
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,21 +6,21 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: #f5f5f5;
-    color: #333;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Control Panel Styles */
 .control-panel {
     background-color: #fff;
-    padding: 1rem;
+    padding: 0.75rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     gap: 1rem;
     position: sticky;
     top: 0;
@@ -33,7 +31,6 @@ body {
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 .control-input {
@@ -41,18 +38,20 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
-    min-width: 120px;
+    min-width: 200px;
 }
 
 .control-button {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     background-color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .control-button:hover {
@@ -61,11 +60,12 @@ body {
 
 /* Device Frame Styles */
 .device-container {
-    padding: 2rem;
+    flex: 1;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: calc(100vh - 80px);
+    align-items: center;
+    padding: 1rem;
+    position: relative;
 }
 
 .device-frame {
@@ -74,76 +74,81 @@ body {
     padding: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
+    margin: auto;
 }
 
 .device-frame iframe {
     border-radius: 24px;
     background-color: #fff;
     transition: all 0.3s ease;
-}
-
-/* Portrait and Landscape Modes */
-.device-frame.portrait {
-    padding: 40px 12px;
-}
-
-.device-frame.landscape {
-    padding: 12px 40px;
+    display: block;
 }
 
 /* Share Section Styles */
 .share-section {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 #qrcode {
     width: 128px;
     height: 128px;
-    padding: 8px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 8px;
+    border-radius: 4px;
 }
 
 .share-input {
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 200px;
+    width: 250px;
     font-size: 14px;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .control-panel {
-        padding: 0.5rem;
-    }
-    
-    .share-section {
-        width: 100%;
-        justify-content: center;
-    }
-    
-    .control-group {
-        width: 100%;
-        justify-content: center;
-    }
+/* Device Specific Styles */
+.device-frame.iphone-se {
+    max-width: 375px;
+    max-height: 667px;
 }
 
-/* Loading States */
+.device-frame.iphone-14 {
+    max-width: 390px;
+    max-height: 844px;
+}
+
+.device-frame.ipad {
+    max-width: 810px;
+    max-height: 1080px;
+}
+
+.device-frame.landscape {
+    transform: rotate(90deg);
+}
+
+/* Loading State */
 .device-frame.loading {
     opacity: 0.7;
 }
 
-/* Animation for orientation change */
-@keyframes rotate-frame {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(90deg); }
-}
-
-/* Utils */
-.hidden {
-    display: none !important;
+/* Mobile Redirect */
+#mobile-redirect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
