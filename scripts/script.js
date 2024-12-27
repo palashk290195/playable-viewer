@@ -57,36 +57,43 @@ class GamePreview {
 
     checkMobile() {
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile) {
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
+        const hasGameParam = new URLSearchParams(window.location.search).has('game');
+        
+        // Only redirect if:
+        // 1. It's a mobile device
+        // 2. Not in standalone mode
+        // 3. Has a game parameter
+        // 4. Not in preview mode
+        if (isMobile && !isStandalone && hasGameParam && !window.location.search.includes('preview=true')) {
             const gameId = this.getGameIdFromURL();
-            if (gameId) {
-                const game = getGameConfig(gameId);
-                if (game) {
-                    window.location.href = game.url;
-                    return;
-                }
+            const game = getGameConfig(gameId);
+            if (game) {
+                window.location.href = game.url;
+                return true;
             }
         }
+        return false;
     }
 
     initFromURL() {
+        if (this.checkMobile()) return; // Stop if redirecting
+        
         const params = new URLSearchParams(window.location.search);
         const gameId = params.get('game');
         const deviceId = params.get('device');
         
-        // Set default game if none selected
-        if (!gameId) {
-            const firstGame = Object.keys(GAMES)[0];
-            this.gameSelector.value = firstGame;
-        } else if (GAMES[gameId]) {
+        // Set default or URL-specified game
+        if (gameId && GAMES[gameId]) {
             this.gameSelector.value = gameId;
+        } else {
+            this.autoSelectFirstGame();
         }
         
         if (deviceId && DEVICES[deviceId]) {
             this.deviceSelector.value = deviceId;
         }
         
-        // Always initialize game
         this.handleGameChange();
         this.handleDeviceChange();
     }
