@@ -69,15 +69,21 @@ class GamePreview {
         const gameId = params.get('game');
         const deviceId = params.get('device');
         
-        if (gameId && GAMES[gameId]) {
+        // Set default game if none selected
+        if (!gameId) {
+            const firstGame = Object.keys(GAMES)[0];
+            this.gameSelector.value = firstGame;
+        } else if (GAMES[gameId]) {
             this.gameSelector.value = gameId;
-            this.handleGameChange();
         }
         
         if (deviceId && DEVICES[deviceId]) {
             this.deviceSelector.value = deviceId;
-            this.handleDeviceChange();
         }
+        
+        // Always initialize game
+        this.handleGameChange();
+        this.handleDeviceChange();
     }
 
     populateGameSelector() {
@@ -107,6 +113,7 @@ class GamePreview {
         this.currentDevice = this.deviceSelector.value;
         this.updateDeviceFrame();
         this.updateShareUrl();
+        this.refreshGame(); // Auto refresh on device change
     }
 
     toggleOrientation() {
@@ -133,12 +140,27 @@ class GamePreview {
         const width = this.isPortrait ? device.width : device.height;
         const height = this.isPortrait ? device.height : device.width;
 
+        // Reset any existing classes
+        this.deviceFrame.className = 'device-frame';
+        
+        // Add device-specific class
+        this.deviceFrame.classList.add(this.currentDevice);
+        
+        // Add orientation class
+        this.deviceFrame.classList.add(this.isPortrait ? 'portrait' : 'landscape');
+
+        // Set dimensions
         this.deviceFrame.style.width = `${width}px`;
         this.deviceFrame.style.height = `${height}px`;
+        
+        // Set iframe dimensions
         this.gameFrame.style.width = '100%';
         this.gameFrame.style.height = '100%';
-
-        this.deviceFrame.className = `device-frame ${this.isPortrait ? 'portrait' : 'landscape'}`;
+        
+        // Force a reflow for iPad
+        if (this.currentDevice === 'ipad') {
+            this.deviceFrame.offsetHeight;
+        }
     }
 
     updateGameFrame() {
