@@ -9,7 +9,8 @@ class GamePreview {
         this.isSoundOn = true;
         this.initElements();
         this.initEventListeners();
-        this.loadInitialGame();
+        this.checkMobile();
+        this.initFromURL();
     }
 
     initElements() {
@@ -30,31 +31,59 @@ class GamePreview {
     }
 
     initEventListeners() {
+        // Game selection
         this.gameSelector.addEventListener('change', () => this.handleGameChange());
+
+        // Device selection
         this.deviceSelector.addEventListener('change', () => this.handleDeviceChange());
+
+        // Orientation toggle
         this.orientationToggle.addEventListener('click', () => this.toggleOrientation());
+
+        // Sound toggle
         this.soundToggle.addEventListener('click', () => this.toggleSound());
+
+        // Refresh button
         this.refreshButton.addEventListener('click', () => this.refreshGame());
+
+        // Copy URL button
         this.copyUrlButton.addEventListener('click', () => this.copyShareUrl());
     }
 
-    loadInitialGame() {
+    checkMobile() {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            const gameId = this.getGameIdFromURL();
+            if (gameId) {
+                const game = getGameConfig(gameId);
+                if (game) {
+                    window.location.href = game.url;
+                    return;
+                }
+            }
+        }
+    }
+
+    initFromURL() {
         const params = new URLSearchParams(window.location.search);
         const gameId = params.get('game');
         const deviceId = params.get('device');
-
-        if (gameId && GAMES[gameId]) {
-            this.gameSelector.value = gameId;
-        } else {
+        
+        // Set default game if none selected
+        if (!gameId) {
             const firstGame = Object.keys(GAMES)[0];
             this.gameSelector.value = firstGame;
+        } else if (GAMES[gameId]) {
+            this.gameSelector.value = gameId;
         }
-
+        
         if (deviceId && DEVICES[deviceId]) {
             this.deviceSelector.value = deviceId;
         }
-
+        
+        // Always initialize game
         this.handleGameChange();
+        this.handleDeviceChange();
     }
 
     populateGameSelector() {
@@ -84,20 +113,21 @@ class GamePreview {
         this.currentDevice = this.deviceSelector.value;
         this.updateDeviceFrame();
         this.updateShareUrl();
-        this.refreshGame();  // Auto refresh when device changes
+        this.refreshGame(); // Auto refresh on device change
     }
 
     toggleOrientation() {
         this.isPortrait = !this.isPortrait;
         this.updateDeviceFrame();
-        this.refreshGame();  // Auto refresh when orientation changes
         this.orientationToggle.innerHTML = `<span class="icon">${this.isPortrait ? '📱' : '📱↔️'}</span>`;
     }
 
     toggleSound() {
         this.isSoundOn = !this.isSoundOn;
         this.soundToggle.innerHTML = `<span class="icon">${this.isSoundOn ? '🔊' : '🔇'}</span>`;
+        
         if (this.gameFrame.contentWindow) {
+            // Send message to game iframe about sound state
             this.gameFrame.contentWindow.postMessage(
                 { type: 'sound', enabled: this.isSoundOn },
                 '*'
@@ -110,19 +140,39 @@ class GamePreview {
         const width = this.isPortrait ? device.width : device.height;
         const height = this.isPortrait ? device.height : device.width;
 
+        // Reset any existing classes
+        this.deviceFrame.className = 'device-frame';
+        
+        // Add device-specific class
+        this.deviceFrame.classList.add(this.currentDevice);
+        
+        // Add orientation class
+        this.deviceFrame.classList.add(this.isPortrait ? 'portrait' : 'landscape');
+
+        // Set dimensions
         this.deviceFrame.style.width = `${width}px`;
         this.deviceFrame.style.height = `${height}px`;
-        this.deviceFrame.className = `device-frame ${this.isPortrait ? 'portrait' : 'landscape'}`;
-        this.deviceFrame.setAttribute('data-device', this.currentDevice);
-
+        
+        // Set iframe dimensions
         this.gameFrame.style.width = '100%';
         this.gameFrame.style.height = '100%';
+        
+        // Force a reflow for iPad
+        if (this.currentDevice === 'ipad') {
+            this.deviceFrame.offsetHeight;
+        }
     }
 
     updateGameFrame() {
         if (!this.currentGame) return;
+        
+        // Add loading state
         this.deviceFrame.classList.add('loading');
+        
+        // Update iframe
         this.gameFrame.src = this.currentGame.url;
+        
+        // Remove loading state once loaded
         this.gameFrame.onload = () => {
             this.deviceFrame.classList.remove('loading');
         };
@@ -142,7 +192,10 @@ class GamePreview {
     }
 
     updateQRCode() {
+        // Clear existing QR code
         this.qrcodeElement.innerHTML = '';
+        
+        // Generate new QR code
         if (this.currentGame) {
             new QRCode(this.qrcodeElement, {
                 text: this.currentGame.url,
@@ -162,6 +215,11 @@ class GamePreview {
         } catch (err) {
             console.error('Failed to copy:', err);
         }
+    }
+
+    getGameIdFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        return params.get('game');
     }
 }
 
