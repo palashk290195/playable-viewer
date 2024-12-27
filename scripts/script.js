@@ -9,13 +9,7 @@ class GamePreview {
         this.isSoundOn = true;
         this.initElements();
         this.initEventListeners();
-        this.checkMobile();
-        this.initFromURL();
-        
-        // Force initial update if no URL params
-        if (!window.location.search) {
-            this.autoSelectFirstGame();
-        }
+        this.loadInitialGame();
     }
 
     initElements() {
@@ -36,66 +30,31 @@ class GamePreview {
     }
 
     initEventListeners() {
-        // Game selection
         this.gameSelector.addEventListener('change', () => this.handleGameChange());
-
-        // Device selection
         this.deviceSelector.addEventListener('change', () => this.handleDeviceChange());
-
-        // Orientation toggle
         this.orientationToggle.addEventListener('click', () => this.toggleOrientation());
-
-        // Sound toggle
         this.soundToggle.addEventListener('click', () => this.toggleSound());
-
-        // Refresh button
         this.refreshButton.addEventListener('click', () => this.refreshGame());
-
-        // Copy URL button
         this.copyUrlButton.addEventListener('click', () => this.copyShareUrl());
     }
 
-    checkMobile() {
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-        const hasGameParam = new URLSearchParams(window.location.search).has('game');
-        
-        // Only redirect if:
-        // 1. It's a mobile device
-        // 2. Not in standalone mode
-        // 3. Has a game parameter
-        // 4. Not in preview mode
-        if (isMobile && !isStandalone && hasGameParam && !window.location.search.includes('preview=true')) {
-            const gameId = this.getGameIdFromURL();
-            const game = getGameConfig(gameId);
-            if (game) {
-                window.location.href = game.url;
-                return true;
-            }
-        }
-        return false;
-    }
-
-    initFromURL() {
-        if (this.checkMobile()) return; // Stop if redirecting
-        
+    loadInitialGame() {
         const params = new URLSearchParams(window.location.search);
         const gameId = params.get('game');
         const deviceId = params.get('device');
-        
-        // Set default or URL-specified game
+
         if (gameId && GAMES[gameId]) {
             this.gameSelector.value = gameId;
         } else {
-            this.autoSelectFirstGame();
+            const firstGame = Object.keys(GAMES)[0];
+            this.gameSelector.value = firstGame;
         }
-        
+
         if (deviceId && DEVICES[deviceId]) {
             this.deviceSelector.value = deviceId;
         }
-        
+
         this.handleGameChange();
-        this.handleDeviceChange();
     }
 
     populateGameSelector() {
@@ -125,21 +84,20 @@ class GamePreview {
         this.currentDevice = this.deviceSelector.value;
         this.updateDeviceFrame();
         this.updateShareUrl();
-        this.refreshGame(); // Auto refresh on device change
+        this.refreshGame();  // Auto refresh when device changes
     }
 
     toggleOrientation() {
         this.isPortrait = !this.isPortrait;
         this.updateDeviceFrame();
+        this.refreshGame();  // Auto refresh when orientation changes
         this.orientationToggle.innerHTML = `<span class="icon">${this.isPortrait ? '📱' : '📱↔️'}</span>`;
     }
 
     toggleSound() {
         this.isSoundOn = !this.isSoundOn;
         this.soundToggle.innerHTML = `<span class="icon">${this.isSoundOn ? '🔊' : '🔇'}</span>`;
-        
         if (this.gameFrame.contentWindow) {
-            // Send message to game iframe about sound state
             this.gameFrame.contentWindow.postMessage(
                 { type: 'sound', enabled: this.isSoundOn },
                 '*'
@@ -152,39 +110,19 @@ class GamePreview {
         const width = this.isPortrait ? device.width : device.height;
         const height = this.isPortrait ? device.height : device.width;
 
-        // Reset any existing classes
-        this.deviceFrame.className = 'device-frame';
-        
-        // Add device-specific class
-        this.deviceFrame.classList.add(this.currentDevice);
-        
-        // Add orientation class
-        this.deviceFrame.classList.add(this.isPortrait ? 'portrait' : 'landscape');
-
-        // Set dimensions
         this.deviceFrame.style.width = `${width}px`;
         this.deviceFrame.style.height = `${height}px`;
-        
-        // Set iframe dimensions
+        this.deviceFrame.className = `device-frame ${this.isPortrait ? 'portrait' : 'landscape'}`;
+        this.deviceFrame.setAttribute('data-device', this.currentDevice);
+
         this.gameFrame.style.width = '100%';
         this.gameFrame.style.height = '100%';
-        
-        // Force a reflow for iPad
-        if (this.currentDevice === 'ipad') {
-            this.deviceFrame.offsetHeight;
-        }
     }
 
     updateGameFrame() {
         if (!this.currentGame) return;
-        
-        // Add loading state
         this.deviceFrame.classList.add('loading');
-        
-        // Update iframe
         this.gameFrame.src = this.currentGame.url;
-        
-        // Remove loading state once loaded
         this.gameFrame.onload = () => {
             this.deviceFrame.classList.remove('loading');
         };
@@ -204,10 +142,7 @@ class GamePreview {
     }
 
     updateQRCode() {
-        // Clear existing QR code
         this.qrcodeElement.innerHTML = '';
-        
-        // Generate new QR code
         if (this.currentGame) {
             new QRCode(this.qrcodeElement, {
                 text: this.currentGame.url,
@@ -226,20 +161,6 @@ class GamePreview {
             }, 2000);
         } catch (err) {
             console.error('Failed to copy:', err);
-        }
-    }
-
-    getGameIdFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('game');
-    }
-
-    autoSelectFirstGame() {
-        const firstGameId = Object.keys(GAMES)[0];
-        if (firstGameId) {
-            this.gameSelector.value = firstGameId;
-            this.handleGameChange();
-            this.handleDeviceChange();
         }
     }
 }
