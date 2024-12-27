@@ -11,6 +11,11 @@ class GamePreview {
         this.initEventListeners();
         this.checkMobile();
         this.initFromURL();
+        
+        // Force initial update if no URL params
+        if (!window.location.search) {
+            this.autoSelectFirstGame();
+        }
     }
 
     initElements() {
@@ -220,6 +225,15 @@ class GamePreview {
     getGameIdFromURL() {
         const params = new URLSearchParams(window.location.search);
         return params.get('game');
+    }
+
+    autoSelectFirstGame() {
+        const firstGameId = Object.keys(GAMES)[0];
+        if (firstGameId) {
+            this.gameSelector.value = firstGameId;
+            this.handleGameChange();
+            this.handleDeviceChange();
+        }
     }
 }
 
