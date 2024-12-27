@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Preview</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- QR Code library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <!-- Mobile Redirect Handler -->
+    <div id="mobile-redirect" style="display: none;">
+        <p>Redirecting to game...</p>
+    </div>
+
+    <!-- Desktop Preview Interface -->
+    <div id="preview-interface">
+        <!-- Header Controls -->
+        <header class="control-panel">
+            <div class="control-group">
+                <select id="game-selector" class="control-input">
+                    <option value="">Select Game</option>
+                    <!-- Populated by JavaScript -->
+                </select>
+
+                <select id="device-selector" class="control-input">
+                    <option value="iphone-se">iPhone SE</option>
+                    <option value="iphone-14">iPhone 14</option>
+                    <option value="ipad">iPad</option>
+                </select>
+
+                <button id="orientation-toggle" class="control-button">
+                    <span class="icon">📱</span>
+                </button>
+
+                <button id="sound-toggle" class="control-button">
+                    <span class="icon">🔊</span>
+                </button>
+
+                <button id="refresh-button" class="control-button">
+                    <span class="icon">🔄</span>
+                </button>
+            </div>
+
+            <!-- Share section -->
+            <div class="share-section">
+                <div id="qrcode"></div>
+                <input type="text" id="share-url" readonly class="share-input">
+                <button id="copy-url" class="control-button">Copy URL</button>
+            </div>
+        </header>
+
+        <!-- Device Frame -->
+        <main class="device-container">
+            <div id="device-frame" class="device-frame">
+                <iframe id="game-frame" src="about:blank" frameborder="0" allow="autoplay"></iframe>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/config.js"></script>
+    <script type="module" src="scripts/script.js"></script>
+</body>
+</html>
