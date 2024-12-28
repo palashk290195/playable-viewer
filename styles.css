@@ -67,7 +67,6 @@ body {
     padding: 2rem;
     position: relative;
     min-height: 100vh;
-    overflow: hidden; /* Prevent scrollbars during rotation */
 }
 
 .device-frame {
@@ -76,12 +75,7 @@ body {
     padding: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
     margin: auto;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-}
-
-.device-frame.landscape {
-    transform: rotate(90deg);
+    transition: all 0.3s ease;
 }
 
 .device-frame iframe {
@@ -89,8 +83,6 @@ body {
     background-color: #fff;
     transition: all 0.3s ease;
     display: block;
-    width: 100%;
-    height: 100%;
 }
 
 /* Share Section Styles */
