@@ -7,6 +7,7 @@ class GamePreview {
         this.currentDevice = DEFAULT_CONFIG.defaultDevice;
         this.isPortrait = true;
         this.isSoundOn = true;
+        this.mobileRedirectElement = document.getElementById('mobile-redirect');
         this.initElements();
         this.initEventListeners();
         this.checkMobile();
@@ -31,6 +32,18 @@ class GamePreview {
     }
 
     initEventListeners() {
+        // Manual redirect handler
+        document.getElementById('manual-redirect').addEventListener('click', (e) => {
+            e.preventDefault();
+            const gameId = this.getGameIdFromURL();
+            if (gameId) {
+                const game = getGameConfig(gameId);
+                if (game) {
+                    window.location.href = game.url;
+                }
+            }
+        });
+
         // Game selection
         this.gameSelector.addEventListener('change', () => this.handleGameChange());
 
@@ -57,11 +70,14 @@ class GamePreview {
             if (gameId) {
                 const game = getGameConfig(gameId);
                 if (game) {
+                    this.mobileRedirectElement.classList.remove('hidden');
                     window.location.href = game.url;
                     return;
                 }
             }
         }
+        // Hide redirect screen on desktop or if no valid game
+        this.mobileRedirectElement.classList.add('hidden');
     }
 
     initFromURL() {
@@ -101,7 +117,10 @@ class GamePreview {
         const gameId = this.gameSelector.value;
         const game = getGameConfig(gameId);
         
-        if (!game) return;
+        if (!game) {
+            this.mobileRedirectElement.classList.add('hidden');
+            return;
+        }
 
         this.currentGame = game;
         this.updateGameFrame();
@@ -166,6 +185,9 @@ class GamePreview {
     updateGameFrame() {
         if (!this.currentGame) return;
         
+        // Hide mobile redirect when updating game frame
+        this.mobileRedirectElement.classList.add('hidden');
+        
         // Add loading state
         this.deviceFrame.classList.add('loading');
         
@@ -210,7 +232,7 @@ class GamePreview {
             await navigator.clipboard.writeText(this.shareUrl.value);
             this.copyUrlButton.textContent = 'Copied!';
             setTimeout(() => {
-                this.copyUrlButton.textContent = 'Copy URL';
+                this.copyUrlButton.textContent = 'Copy';
             }, 2000);
         } catch (err) {
             console.error('Failed to copy:', err);
