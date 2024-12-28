@@ -38,6 +38,12 @@ const GAMES = {
         url: "https://felicity-nova-fq8m332cn-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
+    },
+    "nova-beach-russian": {
+        name: "Nova Beach Russian",
+        url: "https://felicity-nova.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
     }
     // Add more games here
 };
