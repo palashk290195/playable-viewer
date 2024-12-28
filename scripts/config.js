@@ -35,13 +35,13 @@ const GAMES = {
     },
     "nova-classic-english": {
         name: "Nova Classic English",
-        url: "https://felicity-nova-15a5ghiip-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-6e9ngboai-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
     "nova-beach-russian": {
         name: "Nova Beach Russian",
-        url: "https://felicity-nova-3i9hu0m0a-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-ohcbl2bku-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     }
