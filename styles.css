@@ -85,7 +85,7 @@ body {
 }
 
 /* Share Section Styles */
-.share-section {
+.share-panel {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
