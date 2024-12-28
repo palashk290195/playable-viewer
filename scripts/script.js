@@ -156,21 +156,22 @@ class GamePreview {
 
     updateDeviceFrame() {
         const device = getDeviceConfig(this.currentDevice);
-        const width = this.isPortrait ? device.width : device.height;
-        const height = this.isPortrait ? device.height : device.width;
-
-        // Reset any existing classes
+        
+        // Reset any existing classes and styles
         this.deviceFrame.className = 'device-frame';
+        this.deviceFrame.style.transform = '';
         
         // Add device-specific class
         this.deviceFrame.classList.add(this.currentDevice);
         
-        // Add orientation class
-        this.deviceFrame.classList.add(this.isPortrait ? 'portrait' : 'landscape');
-
-        // Set dimensions
-        this.deviceFrame.style.width = `${width}px`;
-        this.deviceFrame.style.height = `${height}px`;
+        // Set base dimensions (always in portrait)
+        this.deviceFrame.style.width = `${device.width}px`;
+        this.deviceFrame.style.height = `${device.height}px`;
+        
+        // Handle orientation
+        if (!this.isPortrait) {
+            this.deviceFrame.classList.add('landscape');
+        }
         
         // Set iframe dimensions
         this.gameFrame.style.width = '100%';
