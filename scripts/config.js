@@ -34,8 +34,14 @@ const GAMES = {
         defaultOrientation: "portrait"
     },
     "nova-classic-english": {
+        name: "Nova Classic Russian",
+        url: "https://felicity-nova-ru.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
+    "nova-classic-russian": {
         name: "Nova Classic English",
-        url: "https://felicity-nova-fq8m332cn-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     }
