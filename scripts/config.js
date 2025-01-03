@@ -33,7 +33,7 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-find-winter-bear-russian": {
+    "seek-find-winter-bear-japanese": {
         name: "Seek & Find Winterland Bear - Russian",
         url: "https://fancy-longma-34dbd6.netlify.app/",
         defaultDevice: "iphone-se",
@@ -45,7 +45,7 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-find-christmas-bear-russian": {
+    "seek-find-christmas-bear-japanese": {
         name: "Seek & Find Christmas Bear - Russian",
         url: "https://lustrous-naiad-614e86.netlify.app/",
         defaultDevice: "iphone-se",
