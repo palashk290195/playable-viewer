@@ -69,6 +69,12 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
+    "nova-rain-english":{
+        name: "Nova Rain Glamp English",
+        url: "https://felicity-nova-git-rainv3-rajats-projects-ef6d1780.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
     // Add more games here
 };
 
