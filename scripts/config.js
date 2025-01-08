@@ -27,8 +27,8 @@ const DEVICES = {
 
 // Game configurations
 const GAMES = {
-    "seek-find-winter-bear-english": {
-        name: "Seek & Find Winterland Bear - English",
+    "seek-find-rugby-english": {
+        name: "Seek & Find Rugby - English",
         url: "https://rococo-treacle-66e062.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
