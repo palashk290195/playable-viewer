@@ -33,14 +33,14 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-find-winter-bear-japanese": {
-        name: "Seek & Find Winterland Bear - Russian",
+    "seek-find-frog-english": {
+        name: "Seek & Find Frog - English",
         url: "https://fancy-longma-34dbd6.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-find-christmas-bear-english": {
-        name: "Seek & Find Christmas Bear - English",
+    "seek-find-duck-english": {
+        name: "Seek & Find Duck - English",
         url: "https://dynamic-haupia-78c159.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
