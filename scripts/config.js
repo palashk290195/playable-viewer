@@ -27,54 +27,13 @@ const DEVICES = {
 
 // Game configurations
 const GAMES = {
-    "seek-find-rugby-english": {
-        name: "Seek & Find Rugby - English",
-        url: "https://rococo-treacle-66e062.netlify.app/",
+    "mpl-bingo": {
+        name: "MPL Bingo",
+        url: "https://mpl-bingo.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-find-frog-english": {
-        name: "Seek & Find Frog - English",
-        url: "https://fancy-longma-34dbd6.netlify.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "seek-find-duck-english": {
-        name: "Seek & Find Duck - English",
-        url: "https://dynamic-haupia-78c159.netlify.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "seek-find-christmas-bear-japanese": {
-        name: "Seek & Find Christmas Bear - Russian",
-        url: "https://lustrous-naiad-614e86.netlify.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-classic-english": {
-        name: "Nova Beach English",
-        url: "https://felicity-nova.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-classic-russian": {
-        name: "Nova Beach Russian",
-        url: "https://felicity-nova-ru.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-rain-english":{
-        name: "Nova Rain English",
-        url: "https://felicity-nova-git-rain-rajats-projects-ef6d1780.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-rain-glamp-english":{
-        name: "Nova Rain Glamp English",
-        url: "https://felicity-nova-git-rainv3-rajats-projects-ef6d1780.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
+   
     // Add more games here
 };
 
