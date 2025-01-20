@@ -75,6 +75,18 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
+    "nova-rain-new-animation":{
+        name: "Nova New Animation Meadows",
+        url: "https://felicity-nova-new-animation-meadows.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
+    "nova-rain-new-animation-combined":{
+        name: "Nova New Animation Combined",
+        url: "https://felicity-nova-new-animation-combined.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
     // Add more games here
 };
 
