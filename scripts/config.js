@@ -46,20 +46,14 @@ const GAMES = {
         defaultOrientation: "portrait"
     },
     "seek-find-christmas-bear-japanese": {
-        name: "Seek & Find Christmas Bear - Russian",
-        url: "https://lustrous-naiad-614e86.netlify.app/",
+        name: "Seek & Find Winterland Bear - Russian",
+        url: "https://admirable-chimera-21c88a.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
     "nova-classic-english": {
         name: "Nova Beach English",
         url: "https://felicity-nova-k5aw7xpfk-rajats-projects-ef6d1780.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-classic-russian": {
-        name: "Nova Beach Russian",
-        url: "https://felicity-nova-ru.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
