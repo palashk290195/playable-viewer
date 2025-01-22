@@ -46,7 +46,7 @@ const GAMES = {
         defaultOrientation: "portrait"
     },
     "seek-find-christmas-bear-japanese": {
-        name: "Seek & Find Winterland Bear - Russian",
+        name: "Seek & Find Winterland Bear - English",
         url: "https://admirable-chimera-21c88a.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
