@@ -65,7 +65,7 @@ const GAMES = {
     },
     "nova-rain-english":{
         name: "Nova Rain English",
-        url: "https://felicity-nova-git-rainv3-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-gtfsc9zro-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
