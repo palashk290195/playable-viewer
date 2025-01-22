@@ -53,7 +53,7 @@ const GAMES = {
     },
     "nova-classic-english": {
         name: "Nova Beach English",
-        url: "https://felicity-nova.vercel.app/",
+        url: "https://felicity-nova-k5aw7xpfk-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
@@ -65,25 +65,19 @@ const GAMES = {
     },
     "nova-rain-english":{
         name: "Nova Rain English",
-        url: "https://felicity-nova-git-rain-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-git-rainv3-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
     "nova-rain-glamp-english":{
         name: "Nova Rain Glamp English",
-        url: "https://felicity-nova-git-rainv3-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-2wnpc6lsg-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
     "nova-rain-new-animation":{
         name: "Nova New Animation Meadows",
         url: "https://felicity-nova-new-animation-meadows.vercel.app/",
-        defaultDevice: "iphone-se",
-        defaultOrientation: "portrait"
-    },
-    "nova-rain-new-animation-combined":{
-        name: "Nova New Animation Combined",
-        url: "https://felicity-nova-new-animation-combined.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
