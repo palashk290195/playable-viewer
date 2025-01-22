@@ -71,13 +71,13 @@ const GAMES = {
     },
     "nova-rain-glamp-english":{
         name: "Nova Rain Glamp English",
-        url: "https://felicity-nova-2wnpc6lsg-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://felicity-nova-mfd6y6tdd-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
     "nova-rain-new-animation":{
         name: "Nova New Animation Meadows",
-        url: "https://felicity-nova-new-animation-meadows.vercel.app/",
+        url: "https://felicity-nova-lbxz9el6e-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
