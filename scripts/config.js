@@ -75,9 +75,9 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "seek-and-find-waldo":{
-        name: "SnF Waldo",
-        url: "https://jazzy-lolly-cb1ee6.netlify.app/",
+    "seek-and-find-waldo-english":{
+        name: "SnF Waldo English",
+        url: "https://save-waldo-seek-find.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
