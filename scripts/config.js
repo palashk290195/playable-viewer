@@ -81,6 +81,13 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
+    "nova-undo":{
+        name: "Nova Undo Feature",
+        url: "https://nova-new-undo.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
+    
     // Add more games here
 };
 
