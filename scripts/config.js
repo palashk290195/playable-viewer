@@ -87,6 +87,12 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
+    "nova-theme-change-video": {
+        name: "Nova Theme Change Video",
+        url: "https://nova-theme-change-video.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    }
     
     // Add more games here
 };
