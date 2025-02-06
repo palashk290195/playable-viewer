@@ -93,9 +93,15 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
-    "nova-classic-undo-video": {
+    "nova-classic-undo": {
         name: "Nova Classic Undo",
         url: "https://felicity-nova-git-6feb-rajats-projects-ef6d1780.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
+    "nova-autocomplete": {
+        name: "Nova Classic Undo",
+        url: "https://felicity-nova-git-6febsecondplayable-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     }
