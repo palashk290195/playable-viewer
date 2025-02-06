@@ -92,7 +92,14 @@ const GAMES = {
         url: "https://nova-theme-change-video.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
+    },
+    "nova-classic-undo-video": {
+        name: "Nova Classic Undo",
+        url: "https://felicity-nova-git-1febautocomplete-rajats-projects-ef6d1780.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
     }
+    
     
     // Add more games here
 };
