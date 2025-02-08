@@ -101,7 +101,7 @@ const GAMES = {
     },
     "nova-autocomplete": {
         name: "Nova Classic Autocomplete",
-        url: "https://felicity-nova-git-6febsecondplayable-rajats-projects-ef6d1780.vercel.app/",
+        url: "https://nimble-zabaione-bcbf0b.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     }
