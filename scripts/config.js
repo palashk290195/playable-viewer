@@ -104,6 +104,12 @@ const GAMES = {
         url: "https://nimble-zabaione-bcbf0b.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
+    },
+    "nova-playable-5-video-to-interactive": {
+        name: "Nova Classic Autocomplete",
+        url: "https://nova-playable-5-video-to-interactive.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
     }
     
     
