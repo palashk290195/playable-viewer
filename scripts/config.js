@@ -89,7 +89,7 @@ const GAMES = {
     },
     "nova-theme-change-video": {
         name: "Nova Theme Change Video",
-        url: "https://nova-theme-change-video.netlify.app/",
+        url: "https://felicity-nova-git-video-theme-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
