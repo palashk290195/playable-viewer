@@ -106,7 +106,7 @@ const GAMES = {
         defaultOrientation: "portrait"
     },
     "nova-playable-5-video-to-interactive": {
-        name: "Nova Classic Autocomplete",
+        name: "Nova Playable 5 Video to Interactive",
         url: "https://nova-playable-5-video-to-interactive.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
