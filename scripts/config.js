@@ -110,6 +110,12 @@ const GAMES = {
         url: "https://nova-playable-5-video-to-interactive.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
+    },
+    "nova-playable-6-beach": {
+        name: "Nova Playable 6 beach",
+        url: "https://nova-playable-6.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
     }
     
     
