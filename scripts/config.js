@@ -116,7 +116,13 @@ const GAMES = {
         url: "https://nova-playable-6.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
-    }
+    },
+    "nova-playable-6-beach": {
+        name: "Nova Playable 6 beach",
+        url: "https://felicity-nova-git-playable4-rajats-projects-ef6d1780.vercel.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
+    } 
     
     
     // Add more games here
