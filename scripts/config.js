@@ -117,8 +117,8 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
     },
-    "nova-playable-6-beach": {
-        name: "Nova Playable 6 beach",
+    "nova-playable-4": {
+        name: "Nova Playable 4",
         url: "https://felicity-nova-git-playable4-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
