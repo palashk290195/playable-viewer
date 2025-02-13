@@ -122,7 +122,15 @@ const GAMES = {
         url: "https://felicity-nova-git-playable4-rajats-projects-ef6d1780.vercel.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
-    } 
+    },
+    "snf-bright-cat": {
+        name: "SnF bright cat",
+        url: "https://playable-7-snf-bright-cat.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
+    },
+    
+        
     
     
     // Add more games here
