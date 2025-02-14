@@ -129,12 +129,19 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
     },
-    "snf-bright-cat": {
-        name: "SnF bright cat",
+    "snf-playable-7-bright-cat": {
+        name: "SnF playable 7 bright cat",
         url: "https://playable-7-snf-bright-cat.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
     },
+    "snf-playable-8-sherlock": {
+        name: "SnF playable 8 sherlock",
+        url: "https://playable-8-snf-sherlock.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
+    }
+    
     
         
     
