@@ -105,6 +105,12 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"
     },
+    "nova-autocomplete-japanese": {
+        name: "Nova Classic Autocomplete Japanese",
+        url: "https://stirring-kheer-071b9a.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"
+    },
     "nova-playable-5-video-to-interactive": {
         name: "Nova Playable 5 Video to Interactive",
         url: "https://nova-playable-5-video-to-interactive.netlify.app/",
