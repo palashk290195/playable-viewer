@@ -140,7 +140,13 @@ const GAMES = {
         url: "https://playable-8-snf-sherlock.netlify.app/",
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
-    }
+    },
+    "snf-playable-9-horror": {
+        name: "SnF playable 9 horror",
+        url: "https://snf-playable9-horror-scene.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
+    },
     
     
         
