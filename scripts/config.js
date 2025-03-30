@@ -147,6 +147,12 @@ const GAMES = {
         defaultDevice: "iphone-se",
         defaultOrientation: "portrait"   
     },
+    "snf-playable-10-park": {
+        name: "SnF playable 10 park",
+        url: "https://singular-stardust-434634.netlify.app/",
+        defaultDevice: "iphone-se",
+        defaultOrientation: "portrait"   
+    }, 
     
     
         
